@@ -5,14 +5,6 @@ pipeline {
         maven "Maven" // Ensure this is the name configured in Jenkins
     }
 
-    stages {
-        stage('Checkout') {
-            steps {
-                echo 'Checking out code...'
-                git 'https://github.com/shivavanga1/sample-java-CI-CD.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 echo 'Building the application...'
