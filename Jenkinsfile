@@ -2,28 +2,35 @@ pipeline {
     agent any
 
     tools {
-        maven "Maven" // Ensure this matches the name configured in Jenkins
+        maven "Maven" // Ensure this is the name configured in Jenkins
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code...'
+                git 'https://github.com/shivavanga1/sample-java-CI-CD.git'
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                sh 'mvn clean package' // Builds the project and creates a JAR file
+                sh 'mvn clean package' // Make sure pom.xml is in the root
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'mvn test' // Executes tests
+                sh 'mvn test'
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                // Here you can add deployment scripts or commands, e.g., copying to a server
+                // Deployment steps here
             }
         }
     }
