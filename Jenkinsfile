@@ -4,7 +4,7 @@ pipeline {
     tools {
         maven "Maven" // Ensure this is the name configured in Jenkins
     }
-
+}
         stage('Build') {
             steps {
                 echo 'Building the application...'
@@ -35,4 +35,5 @@ pipeline {
             echo 'Pipeline failed!'
         }
     }
+}
 
