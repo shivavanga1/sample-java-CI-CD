@@ -25,7 +25,7 @@ pipeline {
                 // Deployment steps here
             }
         }
-    }
+    
 
     post {
         success {
@@ -35,5 +35,3 @@ pipeline {
             echo 'Pipeline failed!'
         }
     }
-}
-
